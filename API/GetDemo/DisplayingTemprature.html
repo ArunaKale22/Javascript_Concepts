@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputText"/>
+    <button id="myBtn">fetch it</button>
+    <div id="info">
+        
+    </div>
+    <script>
+        document.getElementById("myBtn").onclick=()=>{
+            let p =  document.getElementById("inputText").value;
+        console.log(p);
+         var x = fetch(`http://api.openweathermap.org/data/2.5/weather?q=${p}&units=metric&APPID=8bd93a98faca640448756f1d777b40f9`)
+         .then(data=>{
+             return data.json()
+         }).then(data2=>{
+            /* console.log(data2.name)
+             console.log(data2.main.temp)
+             console.log(data2.weather[0].description) */
+             document.getElementById("info").innerHTML=`
+             <ul>
+              <li>City: ${data2.name}</li>
+              <li>Temprature in Celcius:${data2.main.temp} </li>
+              <li>Description: ${data2.weather[0].description}</li>
+            </ul>
+             `
+         })
+        }
+    </script>
+</body>
+</html>

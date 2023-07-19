@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        
+  <button id="myBtn">Fetch It</button>
+  <script>
+    document.getElementById("myBtn").onclick=()=>{
+   
+      fetch(`https://jsonplaceholder.typicode.com/users`)
+     .then(data=>{
+     return data.json()
+    }).then(data2=>{
+        console.log(data2[2].name)
+      
+        
+    })
+}
+</script>
+</body>
+</html>
